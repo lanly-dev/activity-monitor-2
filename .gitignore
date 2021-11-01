@@ -1,0 +1,7 @@
+.DS_Store
+*.local
+/dist
+/dist-ssr
+/out
+node_modules
+package-lock.json
