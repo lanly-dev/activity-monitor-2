@@ -1,3 +1,4 @@
+// https://www.electronjs.org/docs/latest/api/context-bridge
 window.addEventListener('DOMContentLoaded', () => {
   console.log('helloworld')
   // @ts-ignore

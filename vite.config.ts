@@ -4,18 +4,22 @@ import vuetify from '@vuetify/vite-plugin'
 import path from 'path'
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  root: path.join(__dirname, 'src/vite'),
-  base: `/${path.join(__dirname, 'out')}/`,
-  build: {
-    outDir: '../../out',
-    emptyOutDir: true
-  },
-  plugins: [
-    vue(),
-    vuetify({
-      autoImport: true,
-      styles: 'none' // Error on expose
-    })
-  ]
+export default defineConfig(({ mode }) => {
+  const bPath = `/${path.join(__dirname, 'out', 'vite')}/`
+  const base = mode === 'production' ? bPath : undefined
+  return {
+    root: path.join(__dirname, 'src/vite'),
+    base,
+    build: {
+      outDir: '../../out/vite',
+      emptyOutDir: true
+    },
+    plugins: [
+      vue(),
+      vuetify({
+        autoImport: true,
+        styles: true
+      })
+    ]
+  }
 })
